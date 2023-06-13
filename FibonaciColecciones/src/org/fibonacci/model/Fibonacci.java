@@ -20,7 +20,7 @@ public class Fibonacci {
         this.numero = numero;
     }
     //Métodos
-    public long calcularFibonacci(int numero){
+    public long getFibonacci(int numero){
         if (map.containsKey(numero)) { // Si el HashMap contiene la clave numero
             return map.get(numero); // Retornar el valor de la clave
         }else{
@@ -28,12 +28,22 @@ public class Fibonacci {
             if(numero == 0 || numero == 1){ // Caso base
                 return 1;
             }else{
-                resultado = calcularFibonacci(numero - 1) + calcularFibonacci(numero - 2); // Caso recursivo
+                resultado = getFibonacci(numero - 1) + getFibonacci(numero - 2);
             }
             map.put(numero, resultado); // Agregar la clave y el valor al HashMap
             return resultado;
         }
     }
+
+    public String devolverPosicion( int numero){
+      if(map.containsKey(numero)) {
+          map.put(numero, getFibonacci(numero));
+          return "Posición: " + numero;
+      }else{
+          return "El fibonacci se agrego en la lista";
+      }
+    }
+
 
 }
 
